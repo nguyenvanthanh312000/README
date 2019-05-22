@@ -1,0 +1,16 @@
+1. Khai báo 
+  FILE *f;
+2. Mở tập tin 
+    f=fopen('path,mode');
+         path = tuyệt đối , tương đối .
+VD : E:\\Baitap\\VD1.txt 
+     E:\Baitap\VD1.txt
+     f=fopen("E:/Baitap/VD1.txt","r")
+     
+3. Đọc/Ghi 
+- Văn Bản : fscanf fprintf - fputs fget
+- Nhị Phân : fread fwrite 
+4. Đóng tập tin 
+  fclose(f);
+ * rewind(_)
+ * fseek(_)
