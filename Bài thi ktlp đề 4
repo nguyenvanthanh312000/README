@@ -1,0 +1,73 @@
+//de IV
+#include<stdio.h>
+#include<conio.h>
+FILE *f;
+char path[50];
+int a[50][50];
+int i,j,n,tgd,s;
+
+//doc du lieu file INPUT.DAT
+void docdulieu()
+{
+	printf("\n nhap ten file:");
+	gets(path);
+	
+	f=fopen(path,"r");
+	
+	if(f==NULL)
+		printf("khong mo duoc file!");
+	else
+	{
+		fscanf(f,"%d",&n);
+		for(i=1;i<=n;i++)
+			for(j=1;j<=n;j++)
+				fscanf(f,"%d",&a[i][j]);
+		fclose(f);
+	}
+}
+//tinh tong cac phan tu tam giac duoi
+void tinh_tong_tgduoi()
+{
+	tgd=0;
+	
+	for(i=1;i<=n;i++)
+		for(j=1;j<=i;j++)
+		{
+			if(i>=j)
+				tgd=tgd+a[i][j];
+		}
+	
+	printf("\n tong cac phan tu tam giac duoi la:\t%d",tgd);
+}
+//tinh cac phan tu duong cheo chinh bang de quy
+int duong_cheo(int n)
+{
+	if(n<0) return 0;
+	else
+	return duong_cheo(n-1)+a[n][n];
+}
+//luu ket qua cau 3.b vao file OUT.DAT
+void luu_ket_qua()
+{
+	printf("\n nhap ten file can luu:");
+	gets(path);
+	
+	f= fopen(path,"w");
+	
+	if(f==NULL) printf("mo file khong thanh cong !");
+	else
+	{
+		fprintf(f,"%d",tgd);
+		fclose(f);
+	}
+}
+//------------------------------------------
+int main()
+{
+	docdulieu();//cau a
+	tinh_tong_tgduoi();//cau b
+	printf("\n tong cac phan tu duong cheo chinh la:\t%d",duong_cheo(n));//cau c
+	luu_ket_qua();//cau d
+	getch();
+	return 0;
+}
