@@ -15,20 +15,9 @@ int main()
 		fclose(f);
 	}
 }
-
 // nhap mang N : 
 // dong 1 so luong 
 // dong 2 gia tri
-#include <stdio.h>
-
-int main()
-{
-	FILE *f; //khai bao con tro file
-	f = fopen("E:/baitap/VD1.txt","w"); // mo file de ghi su dung duong dan tuyet doi	
-	if(f==NULL)
-		printf("Err!");
-	else
-	{
 		int n, a[20];
 		printf("Nhap n: ");
 		scanf("%d",&n);
@@ -41,4 +30,30 @@ int main()
 		}
 		fclose(f);
 	}
-}
+//Mang 2 chieu nhap nhieu phan tu
+int n, a[20][20];
+		printf("Nhap n: ");
+		scanf("%d",&n);
+		fprintf(f,"%d\n",n); //ghi so N vao file
+		for(int i=0;i<n;i++)
+		{
+			for(int j=0;j<n;j++)
+			{
+			printf("a[%d][%d] = ",i,j);
+			scanf("%d", &a[i][j]);
+			fprintf(f, "%d\t",a[i][j]);
+			}
+		fprintf(f, "\n");	
+		}
+		fclose(f);	
+// nhap ma so sinh vien + ten sv
+
+char maso[10],hoten[40];
+		printf("Nhap n: ");
+		scanf("%s",&maso);
+		fprintf(f,"%s\n",maso); //ghi ma so vao file
+		fflush(stdin); //lam sach bo dem ban phim
+		printf("Nhap ho ten :");
+		gets(hoten);
+		fputs(hoten,f);
+		fclose(f);
