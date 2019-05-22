@@ -1,0 +1,99 @@
+// tao file roi app vao ổ đĩa
+#include <stdio.h>
+
+int main()
+{
+	FILE *f; //khai bao con tro file
+	f = fopen("E:/baitap/VD2.txt","r"); // mo file de ghi su dung duong dan tuyet doi	
+	if(f==NULL)
+		printf("Err!");
+	else
+	{
+		int n;
+		fscanf(f,"%d",&n);
+		printf("n:%d",n);
+		
+		fclose(f);
+	}
+}
+
+\\Doc du lieu gom N ptu khi nhap vao trong notepad 
+		int n,a[20];
+		fscanf(f,"%d\n",&n);
+		printf("n:%d\n",n);
+		for(int i=0;i<n;i++)
+		{
+			fscanf(f,"%d",&a[i]);
+			printf("%d\t",a[i]);
+		}
+		fclose(f);
+    
+\\ doc maso sinh vien va ten sv
+char ms[10],ht[40];
+		fscanf(f,"%s\n",&ms);
+		printf("ma so : %s\n",ms);
+		fgets(ht,40,f); //
+		puts(ht);
+		fclose(f);
+    
+//co sd struct va nhap nhieu ma so va ten sinh vien
+#include <stdio.h>
+
+struct SV{
+	char ms[10],ht[40];
+};
+
+int main()
+{
+	FILE *f; //khai bao con tro file
+	f = fopen("E:/baitap/VD2.txt","r"); // mo file de ghi su dung duong dan tuyet doi	
+	if(f==NULL)
+		printf("Err!");
+	else
+	{
+		SV s[10];int i=0;
+		while(!feof(f)){
+		fscanf(f,"%s\n",&s[i].ms);
+		printf("ma so : %s\n",s[i].ms);
+		fgets(s[i].ht,40,f);
+		puts(s[i].ht);
+		}
+	}
+}
+
+Nhập vào so ptu rồi in ra : 
+#include <stdio.h>
+
+struct SV{
+	char ms[10],ht[40];
+};
+
+int main()
+{
+	FILE *f; //khai bao con tro file
+	f = fopen("./VD3.inp","w+"); // mo file de ghi su dung duong dan tuyet doi	
+	if(f==NULL)
+		printf("Err!");
+	else
+	{
+		int n,m ,a[20];
+		printf("Nhhap n: ");
+		scanf("%d",&n);
+		fprintf(f,"%d\n",n);
+		for(int i=0;i<n;i++)
+		{
+			printf("Nhap so thu %d = ",i);
+			scanf("%d",&m);
+			fprintf(f,"%d\t",m);
+		}
+		rewind(f); //dua con tro chi ve dau file
+		fscanf(f,"%d\n",&n);
+		printf("n:%d",n);
+		for(int i=0;i<n;i++)
+		{
+			fscanf(f,"%d",&a[i]);
+			
+			printf("%d\t",a[i]);
+		}
+	}
+}
