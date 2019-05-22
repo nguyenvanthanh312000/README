@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main()
+{
+	FILE *f; //khai bao con tro file
+	f = fopen("E:/baitap/VD1.txt","w"); // mo file de ghi su dung duong dan tuyet doi	
+	if(f==NULL)
+		printf("Err!");
+	else
+	{
+		int n,m;
+		printf("Nhap N va M: ");
+		scanf("%d%d", &n,&m);
+		fprintf(f,"%d\t%d",n,m); //ghi so N vao file
+		fclose(f);
+	}
+}
